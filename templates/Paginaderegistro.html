@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina de registro</title>
+</head>
+<body>
+    <h1>Registre um novo usuario</h1>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert {{ category }}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+
+    <form method="POST" action="">
+    {{ form.hidden_tag() }} <div>
+        {{ form.email.label }}
+        {{ form.email(size=32) }}
+        {% if form.email.errors %}
+            <div class="errors">
+                {% for error in form.email.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+
+    <div>
+        {{ form.senha.label }}
+        {{ form.senha() }}
+        {% if form.senha.errors %}
+            <div class="errors">
+                {% for error in form.senha.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+
+    <div>
+        {{ form.confirmar_senha.label }}
+        {{ form.confirmar_senha() }}
+        {% if form.confirmar_senha.errors %}
+            <div class="errors">
+                {% for error in form.confirmar_senha.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+
+    <div>
+        {{ form.submit() }}
+    </div>
+</form>
+</body>
+</html>

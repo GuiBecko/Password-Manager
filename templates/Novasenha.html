@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novasenha</title>
+</head>
+<body>
+    
+    <h1>Salvar Nova Senha</h1>
+    <br>
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+
+        {{ form.site.label }}
+        {{ form.site() }}
+
+        {{ form.usuario.label }}
+        {{ form.usuario() }}
+
+        {{ form.senha.label }}
+        {{ form.senha() }}
+
+        {{ form.submit }}
+
+
+    </form>
+
+</body>
+</html>
