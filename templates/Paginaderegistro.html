@@ -19,6 +19,19 @@
 
     <form method="POST" action="">
     {{ form.hidden_tag() }} <div>
+        {{ form.nome.label }}
+        {{ form.nome(size=32) }}
+        {% if form.nome.errors %}
+            <div class="errors">
+                {% for error in form.nome.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+    
+    
+    <div>
         {{ form.email.label }}
         {{ form.email(size=32) }}
         {% if form.email.errors %}

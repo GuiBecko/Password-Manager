@@ -4,6 +4,8 @@ from wtforms.validators import DataRequired, Email, Length, EqualTo
 
 
 class RegistrationForm(FlaskForm):
+    nome = StringField('Nome',
+                       validators=[DataRequired(message="Este campo é obrigatório")])
     email = StringField('Email',
                         validators=[DataRequired(message="Este campo é obrigatório"),
                                     Email(message="Por favor, insira um email válido")])
@@ -26,7 +28,7 @@ class LoginForm(FlaskForm):
                            validators=[DataRequired(message="Campo Obrigatório")])
     submit = SubmitField('Login')
 
-class NewPasswordForm(FlaskForm):
+class NewCredentialForm(FlaskForm):
     site = StringField("Site",
                         validators=[DataRequired(message="Campo Obrigatório")])
     usuario = StringField('Usuario',

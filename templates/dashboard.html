@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Suas Credenciais Salvas 🔑</h1>
+
+    {% for cred in credenciais %}
+    <div class="credential-card">
+        <p>Site: {{ cred.site }}</p>
+        <p>Usuario: {{ cred.usuario }}</p>
+        <p>Senha: {{ cred.senha }}</p>
+    {% else %}
+        <p>Voce ainda nao salvou nenhuma credencial </p>
+    {% endfor %}
+    </div>
+</body>
+</html>
